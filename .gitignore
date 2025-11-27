@@ -1,0 +1,11 @@
+# GHDL temp files
+*.cf
+*.o
+*.exe
+
+# Waveform files (são grandes e binários, geralmente não versionamos)
+*.vcd
+*.ghw
+
+# Editor files
+.vscode/
