@@ -36,7 +36,7 @@ begin
         end if;
     end process;
 
-    process(i2j, i2k, i2clk, ni2pre, ni2clr)
+    process(i2clk, ni2pre, ni2clr)
     begin
         if (ni2pre = '0') then
             q2_status <= '1';

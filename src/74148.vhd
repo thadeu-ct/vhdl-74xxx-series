@@ -34,24 +34,24 @@ begin
                 ogs <= '0';
                 
                 if num_code < 128 then
-                    decode <= "000";        -- 000
+                    decode <= "000"; -- 0
                 elsif num_code < 192 then
-                    decode <= "001";        -- 001
+                    decode <= "001"; -- 1
                 elsif num_code < 224 then
-                    decode <= "010";        -- 010
+                    decode <= "010"; -- 2
                 elsif num_code < 240 then
-                    decode <= "011";        -- 011
+                    decode <= "011"; -- 3
                 elsif num_code < 248 then
-                    decode <= "100";        -- 100
+                    decode <= "100"; -- 4
                 elsif num_code < 252 then
-                    decode <= "101";        -- 101
+                    decode <= "101"; -- 5
                 elsif num_code < 254 then
-                    decode <= "110";        -- 110
+                    decode <= "110"; -- 6
                 end if;
             end if;
         end if;
     end process;
-    
+
     oa0 <= decode(0);
     oa1 <= decode(1);
     oa2 <= decode(2);
