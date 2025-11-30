@@ -13,10 +13,13 @@ entity ttl74163 is
 end ttl74163;
 
 architecture cont_bin_4bits_sr_sinc of ttl74163 is
+
     signal dados_entrada: unsigned(3 downto 0);
     signal contador: unsigned(3 downto 0);
+
 begin
-    dados_entrada <= unsigned(id & ic & ib & ia);;
+    dados_entrada <= unsigned(id & ic & ib & ia);
+
     process(iclk)
     begin
         if rising_edge(iclk) then
@@ -29,6 +32,7 @@ begin
             end if;
         end if;
     end process;
+    
     oqa <= std_logic(contador(0));
     oqb <= std_logic(contador(1));
     oqc <= std_logic(contador(2));

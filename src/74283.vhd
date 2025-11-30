@@ -11,21 +11,25 @@ entity ttl74283 is
     );
 end ttl74283;
 
-architecture somador_2x4bits of ttl74283 is
+architecture somador_4bits of ttl74283 is
+
     signal entrada1: std_logic_vector(4 downto 0);
     signal entrada2: std_logic_vector(4 downto 0);
     signal carryout: std_logic_vector(4 downto 0);
     signal soma: unsigned(4 downto 0);
     signal saida: std_logic_vector(4 downto 0);
+
 begin
     entrada1 <= ('0' & ia4 & ia3 & ia2 & ia1);
     entrada2 <= ('0' & ib4 & ib3 & ib2 & ib1);
     carryout <= ("0000" & ic0);
+
     soma <= unsigned(carryout) + unsigned(entrada1) + unsigned(entrada2);
     saida <= std_logic_vector(soma);
+
     oc4 <= saida(4);
     osum4 <= saida(3);
     osum3 <= saida(2);
     osum2 <= saida(1);
     osum1 <= saida(0);
-end somador_2x4bits;
+end somador_4bits;

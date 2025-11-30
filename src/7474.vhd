@@ -6,7 +6,7 @@ entity ttl7474 is
         i1d, i1clk, ni1pre, ni1clr: in std_logic;  -- entrada 1
         o1q, no1q: out std_logic;                  -- saida 1
                                                    -- flip flop 2
-        i2d, i2clk, ni2pre, ni2clr: in std_logic;  -- entrada 22
+        i2d, i2clk, ni2pre, ni2clr: in std_logic;  -- entrada 2
         o2q, no2q: out std_logic                   -- saida 2
     );
 end ttl7474;
@@ -29,6 +29,7 @@ begin
             no1q <= not (i1d);
         end if; 
     end process;
+
     process(i2clk, ni2pre, ni2clr)
     begin
         if (ni2pre = '0' and ni2clr = '0') then

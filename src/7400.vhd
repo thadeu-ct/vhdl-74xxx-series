@@ -14,7 +14,7 @@ entity ttl7400 is
         o3y: out std_logic;
         -- 4o nand 2 input
         i4a, i4b: in std_logic;
-        o4y: out std_logic;
+        o4y: out std_logic
     );
 end ttl7400;
 

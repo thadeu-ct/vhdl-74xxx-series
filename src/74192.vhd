@@ -12,11 +12,14 @@ entity ttl74192 is
     );
 end ttl74192;
 
-architecture cont_bin_4bits_up_down_sr_sinc of ttl74192 is
+architecture cont_bin_4bits_up_down_sr_nsinc of ttl74192 is
+
     signal dados_entrada: unsigned(3 downto 0);
     signal contador: unsigned(3 downto 0);
+
 begin
     dados_entrada <= unsigned(id & ic & ib & ia);
+
     process(iclr, niload, iup, idown)
     begin
         if iclr = '1' then
@@ -37,10 +40,11 @@ begin
             end if;
         end if;
     end process;
+
     oqa <= std_logic(contador(0));
     oqb <= std_logic(contador(1));
     oqc <= std_logic(contador(2));
     oqd <= std_logic(contador(3));
     noco <= '0' when (contador = "1001" and iup = '0') else '1';
     nobo <= '0' when (contador = "0000" and idown = '0') else '1';
-end cont_bin_4bits_up_down_sr_sinc;
+end cont_bin_4bits_up_down_sr_nsinc;

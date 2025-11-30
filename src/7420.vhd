@@ -12,8 +12,8 @@ entity ttl7420 is
     );
 end ttl7420;
 
-architecture duo_4in_nand of ttl7420 is
+architecture dual_4in_nand of ttl7420 is
 begin
     ov1 <= not(ia1 and ib1 and ic1 and id1);
     ov2 <= not(ia2 and ib2 and ic2 and id2);
-end duo_4in_nand;
+end dual_4in_nand;

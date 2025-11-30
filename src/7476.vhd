@@ -12,10 +12,12 @@ entity ttl7476 is
 end ttl7476;
 
 architecture dual_ff_jk_sr_nsinc of ttl7476 is
+
     signal q1_status: std_logic;
     signal q2_status: std_logic;
+
 begin
-    process(i1j, i1k, i1clk, ni1pre, ni1clr)
+    process(i1clk, ni1pre, ni1clr)
     begin
         if (ni1pre = '0') then
             q1_status <= '1';
@@ -33,6 +35,7 @@ begin
             end if;
         end if;
     end process;
+
     process(i2j, i2k, i2clk, ni2pre, ni2clr)
     begin
         if (ni2pre = '0') then
@@ -51,9 +54,10 @@ begin
             end if;
         end if;
     end process;
+
     o1q <= '1' when (ni1pre = '0' and ni1clr = '0') else q1_status;
     no1q <= '1' when (ni1pre = '0' and ni1clr = '0') else not(q1_status);
     
     o2q <= '1' when (ni2pre = '0' and ni2clr = '0') else q2_status;
-    no2q <= '1' when (ni2pre = '0' and ni2clr = '0') else not(q2_status);    
+    no2q <= '1' when (ni2pre = '0' and ni2clr = '0') else not(q2_status);  
 end dual_ff_jk_sr_nsinc;
