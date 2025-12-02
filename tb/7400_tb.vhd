@@ -12,7 +12,7 @@ architecture sim of tb7400 is
     signal s_i4a, s_i4b, s_o4y : std_logic; -- nand 4
 
 begin
-    uut: entity work.ttl7400
+    uut: entity work.ttl7400(quad_2in_nand)
     port map (
         i1a => s_i1a, i1b => s_i1b, o1y => s_o1y,
         i2a => s_i2a, i2b => s_i2b, o2y => s_o2y,
