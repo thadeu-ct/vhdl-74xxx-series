@@ -12,7 +12,7 @@ architecture sim of tb7402 is
     signal s_i11, s_i12, s_o13 : std_logic; -- nor 4
 
 begin
-    uut: entity work.ttl7402
+    uut: entity work.ttl7402(quad_2in_nor)
     port map (
         i02 => s_i02, i03 => s_i03, o01 => s_o01,
         i05 => s_i05, i06 => s_i06, o04 => s_o04,
