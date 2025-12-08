@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity ttl7442 is
     port (
-        ia, ib, ic, id: in std_logic;        -- controle
+        ia, ib, ic, id: in std_logic;          -- controle
         oy : out std_logic_vector (9 downto 0) -- saida
     );
 end ttl7442;

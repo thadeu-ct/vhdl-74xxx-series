@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity ttl7476 is
+entity ttl74112 is
     port (                                              -- flip flop 1
         i1j, i1k, i1clk, ni1pre, ni1clr: in std_logic;  -- entrada 1
         o1q, no1q: out std_logic;                       -- saida 1
@@ -9,9 +9,9 @@ entity ttl7476 is
         i2j, i2k, i2clk, ni2pre, ni2clr: in std_logic;  -- entrada 2
         o2q, no2q: out std_logic                        -- saida 2
     );
-end ttl7476;
+end ttl74112;
 
-architecture dual_ff_jk_sr_nsinc of ttl7476 is
+architecture dual_jk_neg_edge of ttl74112 is
 
     signal q1_status: std_logic;
     signal q2_status: std_logic;
@@ -23,7 +23,7 @@ begin
             q1_status <= '1';
         elsif (ni1clr = '0') then
             q1_status <= '0';
-        elsif (rising_edge(i1clk)) then
+        elsif (falling_edge(i1clk)) then
             if (i1j = '0' and i1k = '0') then
                 q1_status <= q1_status;
             elsif (i1j = '1' and i1k = '0') then
@@ -42,7 +42,7 @@ begin
             q2_status <= '1';
         elsif (ni2clr = '0') then
             q2_status <= '0';
-        elsif (rising_edge(i2clk)) then
+        elsif (falling_edge(i2clk)) then
             if (i2j = '0' and i2k = '0') then
                 q2_status <= q2_status;
             elsif (i2j = '1' and i2k = '0') then
@@ -60,4 +60,4 @@ begin
     
     o2q <= '1' when (ni2pre = '0' and ni2clr = '0') else q2_status;
     no2q <= '1' when (ni2pre = '0' and ni2clr = '0') else not(q2_status);  
-end dual_ff_jk_sr_nsinc;
+end dual_jk_neg_edge;
