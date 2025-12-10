@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity ttl74138 is
     port (
         ia, ib, ic: in std_logic;             -- select
-        ig1, ig2a, ig2b: in std_logic;        -- enable
+        ig1, nig2a, nig2b: in std_logic;      -- enable
         oy: out std_logic_vector(7 downto 0)  -- output
     );
 end ttl74138;
@@ -16,12 +16,12 @@ architecture decoder_3x8 of ttl74138 is
     signal control: std_logic_vector(2 downto 0);
 
 begin
-    enable <= (not(ig2a) and not(ig2b)) and ig1;
+    enable <= (nig2a nor nig2b) and ig1;
     control <= ic & ib & ia;
 
     process(enable, control)
     begin
-        oy <= others('1');
+        oy <= "11111111";
         
         if enable = '1' then
             oy(to_integer(unsigned(control))) <= '0';

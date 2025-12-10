@@ -4,9 +4,9 @@ use ieee.numeric_std.all;
 
 entity ttl74151 is
     port (
-        id0, id1, id2, id3, id4, id5, id6, id7: in std_logic; -- entradas
+        id0, id1, id2, id3, id4, id5, id6, id7: in std_logic; -- entrada
         ia, ib, ic: in std_logic;                             -- controle
-        istrobe: in std_logic;                                -- enable
+        nistrobe: in std_logic;                               -- enable
         oy, ow: out std_logic                                 -- saida
     );
 end ttl74151;
@@ -21,9 +21,9 @@ begin
     entrada <= id7 & id6 & id5 & id4 & id3 & id2 & id1 & id0;
     controle <= ic & ib & ia;
 
-    process(istrobe, controle)
+    process(nistrobe, controle)
     begin
-        if(istrobe = '0') then
+        if(nistrobe = '0') then
             saida <= entrada(to_integer(unsigned(controle)));
         else
             saida <= '0';

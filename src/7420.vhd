@@ -4,16 +4,16 @@ use ieee.std_logic_1164.all;
 entity ttl7420 is
     port (
         -- 1o nand 4 input
-        ia1, ib1, ic1, id1: in std_logic;
-        ov1: out std_logic;
+        i1a, i1b, i1c, i1d: in std_logic;
+        o1y: out std_logic;
         -- 2o nand 4 input
-        ia2, ib2, ic2, id2: in std_logic;
-        ov2: out std_logic
+        i2a, i2b, i2c, i2d: in std_logic;
+        o2y: out std_logic
     );
 end ttl7420;
 
 architecture dual_4in_nand of ttl7420 is
 begin
-    ov1 <= not(ia1 and ib1 and ic1 and id1);
-    ov2 <= not(ia2 and ib2 and ic2 and id2);
+    o1y <= not(i1a and i1b and i1c and i1d);
+    o2y <= not(i2a and i2b and i2c and i2d);
 end dual_4in_nand;

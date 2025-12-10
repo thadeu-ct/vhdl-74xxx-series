@@ -6,12 +6,12 @@ end tb7404;
 
 architecture sim of tb7404 is
 
-    signal s_i1a, s_o1y : std_logic; -- not 1
-    signal s_i2a, s_o2y : std_logic; -- not 2
-    signal s_i3a, s_o3y : std_logic; -- not 3
-    signal s_i4a, s_o4y : std_logic; -- not 4
-    signal s_i5a, s_o5y : std_logic; -- not 5
-    signal s_i6a, s_o6y : std_logic; -- not 6
+    signal s_i1a, s_o1y: std_logic; -- not 1
+    signal s_i2a, s_o2y: std_logic; -- not 2
+    signal s_i3a, s_o3y: std_logic; -- not 3
+    signal s_i4a, s_o4y: std_logic; -- not 4
+    signal s_i5a, s_o5y: std_logic; -- not 5
+    signal s_i6a, s_o6y: std_logic; -- not 6
 
 begin
     uut: entity work.ttl7404(hex_invert)

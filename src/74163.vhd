@@ -15,16 +15,16 @@ end ttl74163;
 architecture cont_bin_4bits_sr_sinc of ttl74163 is
 
     signal dados_entrada: unsigned(3 downto 0);
-    signal contador: unsigned(3 downto 0);
+    signal contador: unsigned(3 downto 0) := "0000";
 
 begin
-    dados_entrada <= unsigned(id & ic & ib & ia);
+    dados_entrada <= unsigned(std_logic_vector'(id & ic & ib & ia));
 
     process(iclk)
     begin
         if rising_edge(iclk) then
             if niclr = '0' then
-                contador <= "0000"
+                contador <= "0000";
             elsif niload = '0' then
                 contador <= dados_entrada;
             elsif (ienp = '1' and ient = '1') then

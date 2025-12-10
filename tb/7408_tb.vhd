@@ -6,10 +6,10 @@ end tb7408;
 
 architecture sim of tb7408 is
 
-    signal s_i1a, s_i1b, s_o1y : std_logic; -- and 1
-    signal s_i2a, s_i2b, s_o2y : std_logic; -- and 2
-    signal s_i3a, s_i3b, s_o3y : std_logic; -- and 3
-    signal s_i4a, s_i4b, s_o4y : std_logic; -- and 4
+    signal s_i1a, s_i1b, s_o1y: std_logic; -- and 1
+    signal s_i2a, s_i2b, s_o2y: std_logic; -- and 2
+    signal s_i3a, s_i3b, s_o3y: std_logic; -- and 3
+    signal s_i4a, s_i4b, s_o4y: std_logic; -- and 4
 
 begin
     uut: entity work.ttl7408(quad_2in_and)

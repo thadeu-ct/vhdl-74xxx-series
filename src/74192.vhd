@@ -15,10 +15,10 @@ end ttl74192;
 architecture cont_bin_4bits_up_down_sr_nsinc of ttl74192 is
 
     signal dados_entrada: unsigned(3 downto 0);
-    signal contador: unsigned(3 downto 0);
+    signal contador: unsigned(3 downto 0) := "0000";
 
 begin
-    dados_entrada <= unsigned(id & ic & ib & ia);
+    dados_entrada <= unsigned(std_logic_vector'(id & ic & ib & ia));
 
     process(iclr, niload, iup, idown)
     begin

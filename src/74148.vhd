@@ -4,16 +4,17 @@ use ieee.numeric_std.all;
 
 entity ttl74148 is
     port (
-        ien : in std_logic;
-        i0, i1, i2, i3, i4, i5, i6, i7: in std_logic;
-        oa0, oa1, oa2: out std_logic;
-        ogs, oen: out std_logic
+        nien: in std_logic;                           -- enable
+        i0, i1, i2, i3, i4, i5, i6, i7: in std_logic; -- entrada
+        oa0, oa1, oa2: out std_logic;                 -- saida
+        ogs: out std_logic;                           -- verificador
+        oen: out std_logic                            -- enable prox.
     );
 end ttl74148;
 
 architecture enconder_priority_8x3 of ttl74148 is
 
-    signal code: std_logic_vector(7 downto 0);
+    signal code: std_logic_vector(7 downto 0) := "11111111";
     signal num_code: integer range 0 to 255;
     signal decode: std_logic_vector(2 downto 0);
 
@@ -21,13 +22,13 @@ begin
     code <= i7 & i6 & i5 & i4 & i3 & i2 & i1 & i0;
     num_code <= to_integer(unsigned(code));
     
-    process(ien, num_code)
+    process(nien, num_code)
     begin
         decode <= "111";
         ogs <= '1'; 
         oen <= '1';
         
-        if ien = '0' then
+        if nien = '0' then
             if num_code = 255 then
                 oen <= '0';
             else
